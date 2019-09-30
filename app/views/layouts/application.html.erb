@@ -3,13 +3,25 @@
   <head>
     <title>BasketballCourts</title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <div class="header-logo">
+        <%= link_to("TweetApp", "/") %>
+      </div>
+      <ul class="header-menus">
+        <li>
+          <%= link_to("users", users_path) %>
+        </li>
+        <li>
+          <%= link_to("new", new_user_path) %>
+        </li>
+      </ul>
+    </header>
     <%= yield %>
   </body>
 </html>
