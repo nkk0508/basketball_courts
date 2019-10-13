@@ -41,6 +41,11 @@
           </ul>
 
           <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            <% if @current_user %>
+              <div class="btn-group mr-2" role="group" aria-label="First group">
+                <a class="btn btn-outline-primary" href="/">name</a>
+              </div>
+            <% end %>
             <div class="btn-group mr-2" role="group" aria-label="First group">
               <a class="btn btn-outline-primary" href="/login">Log in</a>
             </div>
@@ -48,12 +53,19 @@
               <a class="btn btn-outline-primary" href="/users/new">Sign up</a>
             </div>
             <div class="btn-group mr-2" role="group" aria-label="Third group">
-              <a class="btn btn-outline-danger" href="/logout">Log out</a>
+              <%= link_to 'Log out', "/logout", class: "btn btn-outline-danger", method: :delete %>
             </div>
           </div>
+        </div>
 
       </nav>
     </header>
+
+    <% if flash[:notice] %>
+      <div class="alert alert-success" role="alert">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
 
     <%= yield %>
 
