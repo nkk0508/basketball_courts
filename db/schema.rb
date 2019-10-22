@@ -10,18 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_09_001915) do
+ActiveRecord::Schema.define(version: 2019_10_16_091705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "courts", force: :cascade do |t|
+    t.string "court_name", null: false
+    t.string "monday"
+    t.string "tuesday"
+    t.string "wednesday"
+    t.string "thursday"
+    t.string "friday"
+    t.string "saturday"
+    t.string "sunday"
+    t.string "categories", null: false
+    t.boolean "non_residents", null: false
+    t.string "postal_code", null: false
+    t.string "address", null: false
+    t.string "location_information", null: false
+    t.integer "access_count", null: false
+    t.integer "favorite_count", null: false
+    t.integer "charge"
+    t.string "url"
+    t.string "image_name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "phone_number"
+    t.string "station"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "email"
+    t.string "email", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_name"
-    t.string "password_digest"
+    t.string "password_digest", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
