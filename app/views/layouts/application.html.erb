@@ -11,7 +11,7 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="/">Navbar</a>
+        <a class="navbar-brand" href="/">バスケコート検索サイト</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -47,13 +47,13 @@
               </div>
             <% end %>
             <div class="btn-group mr-2" role="group" aria-label="First group">
-              <a class="btn btn-outline-primary" href="/login">Log in</a>
+              <a class="btn btn-outline-primary" href="/login">ログイン</a>
             </div>
             <div class="btn-group mr-2" role="group" aria-label="Second group">
-              <a class="btn btn-outline-primary" href="/users/new">Sign up</a>
+              <a class="btn btn-outline-primary" href="/users/new">新規登録</a>
             </div>
             <div class="btn-group mr-2" role="group" aria-label="Third group">
-              <%= link_to 'Log out', "/logout", class: "btn btn-outline-danger", method: :delete %>
+              <%= link_to 'ログアウト', "/logout", class: "btn btn-outline-danger", method: :delete %>
             </div>
           </div>
         </div>
@@ -73,9 +73,6 @@
 
   <footer class="footer">
     <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-    <p>
-      <a href="#">Back to top</a>
-    </p>
   </footer>
 
 </html>
