@@ -18,11 +18,23 @@
                   <%= court.court_name %>
                 </p>
                 <p class="card-description">
-                  <%= court.station %>
+                  <%= "最寄り駅: #{court.station}" %>
                 </p>
-                <div class="d-flex justify-content-end align-items-center">
-                  <small class="text-muted">東京都品川区</small>
-                </div>
+                <p class="card-favorite">
+                  <% if @current_user %>
+                    <% if Favorite.find_by(user_id: @current_user.id, court_id: court.id) %>
+                      <%= link_to("/favorites/#{court.id}/destroy", {method: "post"}) do %>
+                        <button type="button" class="btn btn-outline-primary"><i class="fas fa-star"></i></button>
+                        
+                      <% end %>
+                    <% else %>
+                      <%= link_to("/favorites/#{court.id}/create", {method: "post"}) do %>
+                        <button type="button" class="btn btn-outline-primary"><i class="far fa-star"></i></button>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                </p>
+                <span class="address">東京都品川区</span>
               </div>
             </div>
           </div>

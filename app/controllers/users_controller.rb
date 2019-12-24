@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user, {only: [:show, :edit, :update]}
+  before_action :forbid_login_user, {only: [:new, :create, :login_form, :login]}
+  before_action :ensure_correct_user, {only: [:edit, :update]}
 
   # GET /users
   # GET /users.json
@@ -10,6 +13,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @favorites = Favorite.where(user_id: @current_user.id)
   end
 
   # GET /users/new
@@ -71,4 +75,12 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :password)
     end
+
+    def ensure_correct_user
+      if @current_user.id != params[:id].to_i
+        flash[:notice] = "権限がありません"
+        redirect_to("/")
+      end
+    end
+
 end
