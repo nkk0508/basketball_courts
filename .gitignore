@@ -10,5 +10,5 @@
 /public/assets
 .byebug_history
 /config/master.key
-config/database.yml
-memo
+/config/database.yml
+/memo
