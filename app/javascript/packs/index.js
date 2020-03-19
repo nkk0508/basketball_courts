@@ -14,9 +14,4 @@
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from '../components/App';
-
-ReactDOM.render(<App />, document.getElementById('root'));
 console.log('Hello World from Webpacker from index')
