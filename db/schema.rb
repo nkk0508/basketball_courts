@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_22_054103) do
+ActiveRecord::Schema.define(version: 2020_03_18_052556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "courts", force: :cascade do |t|
-    t.string "court_name", null: false
+    t.string "name", null: false
     t.string "monday"
     t.string "tuesday"
     t.string "wednesday"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2020_01_22_054103) do
     t.integer "favorite_count", default: 0, null: false
     t.integer "charge"
     t.string "url"
-    t.string "image_name"
+    t.string "image"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2020_01_22_054103) do
     t.datetime "updated_at", null: false
     t.string "image_name"
     t.string "password_digest", null: false
+    t.string "remember_digest"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

@@ -1,18 +1,21 @@
 <div class="form-signin">
   <%= form_with scope: :session, local: true do |f| %>
     <h1>ログイン</h1>
-        <div class="form-group">
-          <%= f.label :email, 'メールアドレス' %>
-          <%= f.text_field :email, class: 'form-control', 
-          id: 'session_password' %>
+      <% if flash[:notice_form] %>
+        <div class="alert alert-danger" role="alert">
+          <%= flash[:notice_form] %>
         </div>
-        <div class="form-group">
-          <%= f.label :password, 'パスワード' %>
-          <%= f.password_field :password, class: 'form-control', 
-          id: 'session_password' %>
-        </div>
-        <div>
-          <%= f.submit ' ログインする', class: 'btn btn-primary' %>
-        </div>
+      <% end %>
+      <div class="form-group">
+        <%= f.label :email, 'メールアドレス' %>
+        <%= f.email_field :email, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password, 'パスワード' %>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+      <div>
+        <%= f.submit ' ログインする', class: 'btn btn-primary' %>
+      </div>
   <% end %>
 </div>

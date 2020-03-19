@@ -1,0 +1,1 @@
+$(".card-favorite-id-<%= @court.id%>").html("<%= escape_javascript(render partial: "home/create_favorite_ajax", locals: {court: @court, current_user: @current_user}) %>");

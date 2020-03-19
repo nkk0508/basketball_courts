@@ -1,72 +1,11 @@
 <main role="main">
-
   <section class="jumbotron text-center">
     <div class="container">
-      <h1 class="jumbotron-heading">バスケコート検索サイト</h1>
-      <p class="lead text-muted">このサイトはバスケコート検索サイトです</p>
+      <h1 class="jumbotron-heading">バスケットマニア</h1>
+      <p class="lead text-muted">バスケができる場所を検索するWebサービス(東京版)</p>
+      <div id="like_button_container"></div>
     </div>
   </section>
-
-  <ul class="list-group list-group-flush">
-    <div class="container">
-      <div class="row">
-        <% @courts.each do |court| %>
-          <div class="col-md-12">
-            <div class="card mb-12 shadow-sm">
-              <div class="card-body">
-                <p class="card-text">
-                  <%= court.court_name %>
-                </p>
-                <p class="card-description">
-                  <%= "最寄り駅: #{court.station}" %>
-                </p>
-                <p class="card-favorite">
-                  <% if @current_user %>
-                    <% if Favorite.find_by(user_id: @current_user.id, court_id: court.id) %>
-                      <%= link_to("/favorites/#{court.id}/destroy", {method: "post"}) do %>
-                        <button type="button" class="btn btn-outline-primary"><i class="fas fa-star"></i></button>
-                        
-                      <% end %>
-                    <% else %>
-                      <%= link_to("/favorites/#{court.id}/create", {method: "post"}) do %>
-                        <button type="button" class="btn btn-outline-primary"><i class="far fa-star"></i></button>
-                      <% end %>
-                    <% end %>
-                  <% end %>
-                </p>
-                <span class="address">東京都品川区</span>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </ul>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-      <div class="row">
-        <% @courts.each do |court| %>
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <%= image_tag 'gray_color.png', height: "225px" %>
-              <div class="card-body">
-                <p class="card-text">
-                  <%= court.court_name %>
-                </p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
+  <div id="root"></div>
+  <%= render partial: "home/cards", locals: {courts: @courts} %>
 </main>

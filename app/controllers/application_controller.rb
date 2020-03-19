@@ -1,25 +1,20 @@
 class ApplicationController < ActionController::Base
+  include SessionsHelper
   before_action :current_user
-  before_action :index
-  helper_method :current_user
-
+  
   private
 
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
-  end
-
   def authenticate_user
-    if @current_user == nil
+    unless logged_in?
       flash[:notice] = "ログインが必要です"
-      redirect_to("/login")
+      redirect_to login_url
     end
   end
 
   def forbid_login_user
     if @current_user
       flash[:notice] = "すでにログインしています"
-      redirect_to("/")
+      redirect_to login_url
     end
   end
 
