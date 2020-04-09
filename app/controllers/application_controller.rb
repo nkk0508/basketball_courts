@@ -6,16 +6,19 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user
     unless logged_in?
-      flash[:notice] = "ログインが必要です"
+      flash[:notice] = 'ログインが必要です'
       redirect_to login_url
     end
   end
 
   def forbid_login_user
     if @current_user
-      flash[:notice] = "すでにログインしています"
+      flash[:notice] = 'すでにログインしています'
       redirect_to login_url
     end
   end
 
+  def load_courts
+    @courts = Courts.all
+  end
 end

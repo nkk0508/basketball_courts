@@ -1,10 +1,7 @@
 class SessionsController < ApplicationController
-  def index
-  end
-
   def new
-    if @current_user
-      redirect_to("/")
+    if @current_user then
+      redirect_to('/')
     end
   end
 
@@ -15,7 +12,7 @@ class SessionsController < ApplicationController
       remember user
       redirect_to root_url, notice: 'ログインしました'
     else
-      flash.now[:notice_form] = "ログインに失敗しました"
+      flash.now[:notice_form] = 'ログインに失敗しました'
       render :new
     end
   end
@@ -27,7 +24,7 @@ class SessionsController < ApplicationController
 
   def logout
     unless @current_user
-      redirect_to("/login")
+      redirect_to('/login')
     end
   end
 

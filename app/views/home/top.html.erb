@@ -2,10 +2,11 @@
   <section class="jumbotron text-center">
     <div class="container">
       <h1 class="jumbotron-heading">バスケットマニア</h1>
-      <p class="lead text-muted">バスケができる場所を検索するWebサービス(東京版)</p>
+      <p class="lead text-muted">バスケができる場所を検索するWebサービス(東京23区版)</p>
       <div id="like_button_container"></div>
     </div>
   </section>
-  <div id="root"></div>
+  <%= react_component("search_form") %>
+  
   <%= render partial: "home/cards", locals: {courts: @courts} %>
 </main>

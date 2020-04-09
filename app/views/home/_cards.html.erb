@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row justify-content-md-center">
       <% @courts.each do |court| %>
-        <div class="col-md-10 court-card">
+        <div class="col-md-10 card-court test card-court-id-<%= court.id %>">
           <div class="card mb-10 shadow-sm">
             <div class="card-body">
               <span class="card-left">
@@ -18,22 +18,18 @@
                     </span>
                   <% end %>
                 </p>
-                <p class="card-description">
-                  <%= "最寄り駅: #{court.station}" %>
-                </p>
+                <%= render partial: "home/table", locals: {court: court} %>
+                <span class="card-description">
+                  <%= "最寄り駅：#{court.station}" %>
+                </span>
                 <span class="card-address">
                   <%= "#{court.address}" %>
                 </span>
-                <%= render partial: "home/table", locals: {court: court} %>
-              </span>
-              <div class="card-counter">
-                <p class="card-counter000">
-                  <%= "最寄り駅: #{court.station}" %>
-                </p>
-                <span class="card-counter111">
-                  <%= "最寄り駅: #{court.station}" %>
+                <span class="card-non-residents">
+                  <%= "#{court.ward}外の住人の利用：#{court.non_residents ? "可" : "不可"}" %>
                 </span>
-              </div>
+              </span>
+              
             </div>
           </div>
         </div>

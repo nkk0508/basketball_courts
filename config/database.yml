@@ -5,18 +5,18 @@ default: &default
 
 development:
   <<: *default
-  database: basketball_courts_development
-  username: nkk0508
-  password: vcdunk15
+  database: <%= ENV['DB_NAME'] %>_development
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASS'] %>
 
 test:
   <<: *default
-  database: basketball_courts_test
-  username: nkk0508
-  password: vcdunk15
+  database: <%= ENV['DB_NAME'] %>_test
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASS'] %>
 
 production:
   <<: *default
-  database: basketball_courts_production
-  username: nkk0508
-  password: vcdunk15
+  database: <%= ENV['DB_NAME'] %>_production
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASS'] %>

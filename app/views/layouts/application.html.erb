@@ -8,8 +8,8 @@
     <!-- Sprocketsでjavascriptを読み込ませるタグ -->
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %> 
     <!-- Webpackでjavascriptを読み込ませるタグ -->
-    <%= javascript_pack_tag 'index' %> 
-    
+    <%= javascript_pack_tag 'application' %>
+    <%= stylesheet_pack_tag 'application' %>
   </head>
   <body>
     <header>
@@ -40,14 +40,18 @@
       </div>
     </header>
     <% if flash[:notice] %>
-      <div class="alert alert-success" role="alert">
-        <%= flash[:notice] %>
+      <div class="alert alert-success alert-dismissible fade show" id="login-logout-alert" role="alert">
+        <div>
+          <%= flash[:notice] %>
+          <button type="button" class="close" id="login-logout-alert-close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
       </div>
     <% end %>
     <%= yield %>
-    
   </body>
   <footer class="footer">
-    <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+    <p>© 2020 Copyright: <a href="https://basketmania.info/">basketmania.info</a></p>
   </footer>
 </html>

@@ -1,7 +1,6 @@
 FactoryBot.define do
   factory :court do
-    court_name { "MyString" }
-    image_name { "MyString" }
+    name { "テスト体育館" }
     monday { false }
     tuesday { false }
     wednesday { false }
@@ -9,15 +8,18 @@ FactoryBot.define do
     friday { false }
     saturday { false }
     sunday { false }
-    available_time { "MyString" }
     categories { "MyString" }
-    non_residents { false }
-    personal_use { false }
-    group_use { false }
-    address { "MyString" }
+    non_residents { "MyString" }
+    postal_code { "MyString" }
+    address { "東京都品川区東五反田2-11-2" }
     location_information { "MyString" }
     access_count { 1 }
     favorite_count { 1 }
+    charge { 1 }
+    url { "MyString" }
+    image { "MyString" }
     description { "MyText" }
+    phone_number { "MyText" }
+    station { "MyText" }
   end
 end

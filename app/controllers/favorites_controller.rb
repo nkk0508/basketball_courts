@@ -7,10 +7,9 @@ class FavoritesController < ApplicationController
       if @favorite.save
         format.js
       else
-        format.js {render json: {errors: @court.errors.full_messages}}
+        format.js { render json: { errors: @court.errors.full_messages } }
       end
     end
-    
   end
 
   def destroy
@@ -21,9 +20,8 @@ class FavoritesController < ApplicationController
       if @favorite&.destroy
         format.js
       else
-        format.js {render json: {errors: @court.errors.full_messages}}
+        format.js { render json: { errors: @court.errors.full_messages } }
       end
     end
-
   end
 end

@@ -6,9 +6,9 @@ class User < ApplicationRecord
   has_many :courts, through: :favorites
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :name, {presence: true, length: {maximum: 50}}
-  validates :email, {presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }, length: { maximum: 254 }}
-  validates :password, {presence: true, length: {within: 6..200}}
+  validates :name, { presence: true, length: { maximum: 50 } }
+  validates :email, { presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }, length: { maximum: 254 } }
+  validates :password, { presence: true, length: { within: 6..200 } }
 
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
