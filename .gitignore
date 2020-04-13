@@ -19,3 +19,6 @@
 yarn-debug.log*
 .yarn-integrity
 /.env
+config/deploy/*
+# Ignore master key for decrypting credentials and more.
+/config/master.key
