@@ -6,6 +6,7 @@ ruby '2.5.1'
 gem 'awesome_rails_console'
 gem 'bcrypt'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootstrap'
 gem 'bootstrap-sass'
 gem 'coffee-rails', '~> 4.2'
 gem 'dotenv-rails'
