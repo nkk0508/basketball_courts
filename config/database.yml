@@ -5,9 +5,9 @@ default: &default
 
 development:
   <<: *default
-  database: <%= ENV['DB_NAME'] %>_development
-  username: <%= ENV['DB_USER'] %>
-  password: <%= ENV['DB_PASS'] %>
+  database: <%= ENV['DEVELOPMENT_DB_NAME'] %>_development
+  username: <%= ENV['DEVELOPMENT_DB_USER'] %>
+  password: <%= ENV['DEVELOPMENT_DB_PASS'] %>
 
 test:
   <<: *default
@@ -17,6 +17,6 @@ test:
 
 production:
   <<: *default
-  database: <%= ENV['DB_NAME'] %>_production
-  username: <%= ENV['DB_USER'] %>
-  password: <%= ENV['DB_PASS'] %>
+  database: <%= ENV['PRODUCTION_DB_NAME'] %>_production
+  username: <%= ENV['PRODUCTION_DB_USER'] %>
+  password: <%= ENV['PRODUCTION_DB_PASS'] %>

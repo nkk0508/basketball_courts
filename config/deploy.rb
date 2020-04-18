@@ -1,6 +1,8 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.13.0"
 
+set :pty, true
+
 set :application, "basketball_courts"
 set :repo_url, "git@github.com:nkk0508/basketball_courts.git"
 set :deploy_to, "/usr/share/nginx/basketball_courts"
@@ -9,8 +11,8 @@ set :rbenv_type, :user
 set :rbenv_ruby, '2.5.1'
 set :rbenv_path, '/root/.rbenv'
 
-append :linked_files, ".env", "config/master.key"
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", ".bundle"
+append :linked_files, ".env", "config/master.key", 'config/database.yml', 'config/credentials.yml.enc'
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
 
 
 # Default branch is :master
