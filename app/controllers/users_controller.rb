@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   before_action :ensure_correct_user, { only: [:show] }
 
   def show
-    @favorites = Favorite.where(user_id: @current_user.id)
+    @favorites = Favorite.where(user_id: @current_user.id).includes(:user, :court)
+    @favorited = false
   end
 
   def new

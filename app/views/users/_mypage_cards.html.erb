@@ -11,7 +11,7 @@
                   <span class="card-title"><%= court.name %></span>
                   <% if @current_user %>
                     <span class="card-favorite-id-<%= court.id %>">
-                      <% if Favorite.find_by(user_id: @current_user.id, court_id: court.id) %>
+                      <% if favorite.court.id == court.id && favorite.user.id == @current_user.id %>
                         <%= render partial: "home/destroy_favorite", locals: {court: court} %>
                       <% else %>
                         <%= render partial: "home/create_favorite", locals: {court: court} %>
