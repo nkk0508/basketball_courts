@@ -114,7 +114,7 @@ export default function SearchMultipleSelect(props) {
   };
 
   const updateCurrentServerUrl = (weeks, address, categories) => {
-    currentServerUrl = `http://basketmania.info/search/${weeks}/${address}/${categories}`;
+    currentServerUrl = `https://basketmania.info/search/${weeks}/${address}/${categories}`;
   }
 
   return (
