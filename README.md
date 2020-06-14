@@ -1,24 +1,27 @@
-# README
+# basketball_courts
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+東京都内(23区)のバスケができる場所を探すWebサービス
 
-Things you may want to cover:
+バスケットマニア
 
-* Ruby version
+https://basketmania.info/
 
-* System dependencies
+東京23区内のバスケットコートを
+- カテゴリ
+- 地域
+- 使える曜日
 
-* Configuration
+の3項目で絞り込み検索ができます
 
-* Database creation
+ログインしてお気に入りの場所を保存することもできます。
 
-* Database initialization
+現在は23区内のみを対象としているが、将来的に東京都全域をカバーしたい。
 
-* How to run the test suite
+フロントエンド
+- React(一部)
+- bootstrap
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+バックエンド
+- Ruby on Rails
+- RSpec
+- Capistrano
